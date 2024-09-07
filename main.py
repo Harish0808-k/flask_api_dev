@@ -70,7 +70,7 @@ class LikeAndComment(db.Model):
                            onupdate=db.func.current_timestamp()
                            )
 
-    # Relationships to User and Post models for easy access like 
+    # Relationships to User and Post models for easy access like
     # user.likes_and_comments and post.likes_and_comments
     user = db.relationship('User', backref='likes_and_comments')
     post = db.relationship('Post', backref='likes_and_comments')
