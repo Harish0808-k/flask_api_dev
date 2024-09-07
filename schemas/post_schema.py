@@ -34,7 +34,8 @@ class PostSchemaIn(Schema):
 
     @validates('image')
     def validate_image_extension(self, value):
-        if not value.lower().endswith(('.jpg', '.jpeg', '.png')):
+        allowed_extensions = {'.jpg', '.jpeg', '.png'}
+        if not any(value.lower().endswith(ext) for ext in allowed_extensions):
             raise ValidationError(
                 "Image must have .jpg, .jpeg or .png extension"
             )

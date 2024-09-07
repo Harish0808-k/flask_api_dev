@@ -7,6 +7,8 @@ from marshmallow import (
     validates_schema
 )
 
+from schemas.post_schema import PostSchemaOut
+
 
 class UserSchemaIn(Schema):
     username = fields.String(required=True)
@@ -61,3 +63,4 @@ class UserSchemaOut(Schema):
     email = fields.Email()
     created_on = fields.DateTime()
     updated_on = fields.DateTime()
+    posts = fields.Nested(PostSchemaOut)
